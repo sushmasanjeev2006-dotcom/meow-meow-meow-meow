@@ -5,7 +5,8 @@
   font-family: Arial, sans-serif;
 }
 
-body {
+body {background: radial-gradient(circle at top, #0ff 0%, #050014 70%);
+      
   background: black;
   overflow-x: hidden;
 }
