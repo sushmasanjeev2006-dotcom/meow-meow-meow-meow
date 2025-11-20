@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -12,84 +12,114 @@ body {
 
 #blur-bg {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://static.animecorner.me/2023/07/rezero-s3-scaled.jpg');
+  background: url('https://static.animecorner.me/2023/07/rezero-s3-scaled.jpg');
   background-size: cover;
   background-position: center;
-  filter: blur(20px);
-  opacity: 0.25;
+  filter: blur(25px);
+  opacity: 0.3;
   z-index: -1;
 }
 
 .login-box {
   width: 300px;
   margin: 100px auto;
-  background: rgba(0,0,0,0.7);
   padding: 20px;
-  border-radius: 12px;
+  background: rgba(0,0,0,0.8);
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 0 20px #ff8ccf;
+  box-shadow: 0 0 25px hotpink;
 }
 
 .login-box input {
   width: 90%;
-  margin: 8px;
+  margin: 10px;
   padding: 10px;
+  border-radius: 12px;
   border: none;
-  border-radius: 8px;
 }
 
 button {
-  background: hotpink;
-  border: none;
+  background: linear-gradient(135deg, hotpink, deepskyblue);
   color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 10px hotpink;
+  box-shadow: 0 0 15px hotpink;
 }
 
-.portal {
+.hidden { display: none; }
+
+.page {
+  display: none;
   text-align: center;
   padding: 40px;
 }
 
-.hidden {
-  display: none;
-}
-
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
+.page.active { display: block; }
 
 #scratchCanvas {
-  width: 300px;
+  width: 320px;
   height: 200px;
   background: silver;
-  margin: 20px auto;
   border-radius: 20px;
 }
 
 #bracelet {
-  width: 200px;
+  width: 180px;
   display: none;
-  margin: 10px auto;
+  margin-top: 10px;
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(3, 90px);
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.cell {
+  background: #111;
+  color: cyan;
+  font-size: 36px;
+  height: 90px;
+  line-height: 90px;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 10px cyan;
+}
+
+.quote {
+  color: pink;
+  font-size: 20px;
+  margin: 10px;
 }
 
 .bracelet-cert {
   width: 180px;
-  margin: 20px;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .certificate-text {
-  font-size: 18px;
+  margin-top: 20px;
   color: #ffb6f2;
+  font-size: 18px;
+}
+
+#sparkle-container span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: pink;
+  box-shadow: 0 0 10px pink;
+  pointer-events: none;
+  animation: sparkle 1s linear forwards;
+}
+
+@keyframes sparkle {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(3); }
 }
