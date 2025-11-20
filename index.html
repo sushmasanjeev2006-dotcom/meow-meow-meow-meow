@@ -8,56 +8,59 @@
 <body>
 
 <div id="blur-bg"></div>
+<div id="sparkle-container"></div>
 
 <div class="login-box" id="loginBox">
-  <h2>Login Portal</h2>
+  <h2>Login Portal 🧠</h2>
   <input type="text" id="user" placeholder="Username">
   <input type="password" id="pass" placeholder="Password">
-  <button onclick="login()">Login</button>
+  <button onclick="login()">Enter Portal</button>
   <p id="loginMsg"></p>
 </div>
 
 <div class="portal hidden" id="portal">
 
-  <!-- Page 1 -->
   <div class="page active" id="page1">
-    <h1>Welcome Princess 💗</h1>
-    <p>Ready for your fun portal?</p>
-    <button onclick="nextPage()">Start Mission</button>
+    <h1>Welcome, Princess 💗</h1>
+    <p>Your cyber mission starts now.</p>
+    <button onclick="nextPage()">Start</button>
   </div>
 
-  <!-- Page 2: Scratch Card -->
   <div class="page" id="page2">
-    <h2>Scratch to Reveal 💖</h2>
+    <h2>Scratch to Reveal 🔥</h2>
     <canvas id="scratchCanvas"></canvas>
-    <img src="https://i.pinimg.com/originals/9a/19/21/9a192164d7f0f2dea3b4b182c221d97d.jpg" id="bracelet">
-    <button onclick="nextPage()">Next ➤</button>
+    <img id="bracelet" src="https://i.pinimg.com/originals/9a/19/21/9a192164d7f0f2dea3b4b182c221d97d.jpg">
+    <button onclick="nextPage()">Continue</button>
   </div>
 
-  <!-- Page 3: Tic Tac Toe -->
   <div class="page" id="page3">
     <h2>Tic Tac Toe vs AI 🎮</h2>
     <div id="gameBoard"></div>
-    <button onclick="nextPage()">Next Stage</button>
+    <button onclick="nextPage()">Next</button>
   </div>
 
-  <!-- Page 4: Certificate -->
   <div class="page" id="page4">
-    <h2>Certificate 💌</h2>
-    <img src="https://i.pinimg.com/originals/9a/19/21/9a192164d7f0f2dea3b4b182c221d97d.jpg" class="bracelet-cert">
+    <h2>Princess Status 💌</h2>
+    <p class="quote">"Yes, you are princess"</p>
+    <p class="quote">"Zyada uda na karo janab"</p>
+    <p class="quote">"Jaldi reply kar diya karo"</p>
+    <button onclick="nextPage()">Final Stage</button>
+  </div>
 
+  <div class="page" id="page5">
+    <h2>Friendship Certificate 🖤</h2>
+    <img class="bracelet-cert" src="https://i.pinimg.com/originals/9a/19/21/9a192164d7f0f2dea3b4b182c221d97d.jpg">
     <p class="certificate-text">
       You are forcefully enforced for this friendship, no way to escape.
-      This bond is officially sealed with chaos, care, madness, and loyalty.
-      You are now emotionally trapped forever.
+      This bond is permanent and sealed. No exits, no refunds,
+      and absolutely no emotional escape routes.
     </p>
   </div>
 
 </div>
 
-<!-- Music -->
 <audio id="bgMusic" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
 </audio>
 
 <script src="script.js"></script>
