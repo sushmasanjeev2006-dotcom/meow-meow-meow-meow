@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Princess Portal — Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-wallpaper" aria-hidden="true"></div>
+  <div class="neon-overlay" aria-hidden="true"></div>
+  <div id="particles" aria-hidden="true"></div>
+
+  <main class="container">
+    <header class="topbar">
+      <div class="logo">ENIGMA PORTAL</div>
+      <div class="meta">A premium gift for Shub</div>
+    </header>
+
+    <section class="panel login-panel">
+      <h1 class="portal-title">Enter the Portal</h1>
+      <p class="muted">Login with the credentials you set up.</p>
+
+      <label class="lbl">Username</label>
+      <input id="loginUser" class="fld" placeholder="Shub@princess" value="">
+
+      <label class="lbl">Password</label>
+      <input id="loginPass" class="fld" type="password" placeholder="Fast-text" value="">
+
+      <div class="row">
+        <button id="btnLogin" class="btn primary">Enter</button>
+        <button id="btnDemo" class="btn ghost">Try Demo</button>
+      </div>
+
+      <p id="loginError" class="muted error" aria-live="polite"></p>
+
+      <div class="note muted">Username: <code>Shub@princess</code> • Password: <code>Fast-text</code></div>
+    </section>
+
+    <footer class="footer muted">Neon-cyber pink • Re:Zero hint • Built with ❤️</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
