@@ -80,3 +80,7 @@ html,body{height:100%;margin:0;font-family:Inter, Poppins, system-ui;background:
   .scratch-wrap{ width:92%; height:200px }
   .container{ margin:3vh auto }
 }
+body {
+  background-image: url("assets/images/rezero.jpg");
+}
+
