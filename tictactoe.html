@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tic-Tac-Toe — Duel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-wallpaper" aria-hidden="true"></div>
+  <div class="neon-overlay" aria-hidden="true"></div>
+  <div id="particles" aria-hidden="true"></div>
+
+  <main class="container">
+    <header class="topbar">
+      <div class="logo">ENIGMA PORTAL</div>
+      <div class="meta">Tic-Tac-Toe — Challenge</div>
+    </header>
+
+    <section class="panel">
+      <h2 class="section-title">Duel — Tic-Tac-Toe</h2>
+      <div class="card">
+        <div id="tttBoard" class="ttt-grid" role="grid" aria-label="Tic tac toe board"></div>
+        <div class="row" style="margin-top:12px">
+          <button id="btnTttReset" class="btn ghost">Reset</button>
+          <a id="btnTttNext" href="scratch.html" class="btn primary">Continue</a>
+        </div>
+        <p id="tttStatus" class="muted stage-note"></p>
+      </div>
+
+      <div class="nav-row">
+        <a href="stage1.html" class="btn ghost">Back</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
