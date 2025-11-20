@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Scratch — Reveal Bracelet</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-wallpaper" aria-hidden="true"></div>
+  <div class="neon-overlay" aria-hidden="true"></div>
+  <div id="particles" aria-hidden="true"></div>
+
+  <main class="container">
+    <header class="topbar">
+      <div class="logo">ENIGMA PORTAL</div>
+      <div class="meta">Scratch to Reveal</div>
+    </header>
+
+    <section class="panel">
+      <h2 class="section-title">Scratch Card</h2>
+      <div class="card">
+        <p class="muted">Scratch the foil using mouse or your finger. Particle sparks appear while scratching.</p>
+
+        <div class="scratch-wrap">
+          <img id="braceletUnder" class="bracelet-under" alt="bracelet under" />
+          <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+        </div>
+
+        <div class="row" style="margin-top:12px">
+          <button id="btnScratchReset" class="btn ghost">Reset</button>
+          <button id="btnScratchNext" class="btn primary" disabled>Continue</button>
+        </div>
+        <p id="scratchNote" class="muted stage-note"></p>
+      </div>
+
+      <div class="nav-row">
+        <a href="tictactoe.html" class="btn ghost">Back</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
