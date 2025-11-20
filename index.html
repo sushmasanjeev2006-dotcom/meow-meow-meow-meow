@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shub Portal</title>
+
+<style>
+* {
+  margin:0; padding:0; box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height:100vh;
+  background: url("https://static.animecorner.me/2023/07/rezero-s3-scaled.jpg") center/cover fixed no-repeat;
+  color:white;
+  overflow:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  backdrop-filter: blur(18px);
+  background: rgba(0,0,0,0.6);
+  z-index:-1;
+}
+
+/* General */
+.page {
+  display:none;
+  min-height:100vh;
+  padding:20px;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.active { display:flex; }
+
+button {
+  padding:14px 30px;
+  margin-top:15px;
+  border:none;
+  border-radius:8px;
+  background: linear-gradient(135deg,#ff7ac3,#7adfff);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(255,122,195,0.5);
+}
+
+input {
+  width:250px;
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  margin:10px;
+  font-size:16px;
+}
+
+.box {
+  background: rgba(0,0,0,0.6);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 0 40px rgba(122,223,255,0.15);
+  width:90%; max-width:400px;
+}
+
+/* Sparkle */
+.sparkle {
+  position:absolute;
+  width:8px; height:8px;
+  background:white;
+  border-radius:50%;
+  pointer-events:none;
+  box-shadow:0 0 20px #ff88cc;
+  animation:spark 0.8s linear forwards;
+}
+
+@keyframes spark {
+  0% {opacity:1; transform:scale(1);}
+  100% {opacity:0; transform:scale(4) translateY(-30px);}
+}
+
+/* Scratch Area */
+#scratch {
+  width:300px; height:150px;
+  background:silver;
+  cursor:pointer;
+  margin-top:20px;
+  border-radius:15px;
+}
+
+/* Tic Tac Toe */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,90px);
+  gap:10px;
+  margin-top:20px;
+}
+.cell {
+  width:90px;height:90px;
+  background:rgba(255,255,255,0.1);
+  font-size:2em;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+
+/* Certificate */
+.cert {
+  background:white;
+  color:black;
+  padding:25px;
+  border-radius:15px;
+  max-width:500px;
+  box-shadow:0 0 30px rgba(255,122,195,0.4);
+}
+
+.bracelet {
+  width:150px;
+  margin-top:15px;
+  border-radius:10px;
+}
+
+small { opacity:0.7; }
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/08/04/audio_6ca4b586b3.mp3">
+</audio>
+
+<!-- LOGIN -->
+<div class="page active" id="login">
+  <div class="box">
+    <h2>Secure Portal Login</h2>
+    <input id="user" placeholder="Username">
+    <input id="pass" type="password" placeholder="Password">
+    <button onclick="login()">Enter Portal</button>
+    <small>Cyber secured gateway</small>
+  </div>
+</div>
+
+<!-- WELCOME -->
+<div class="page" id="welcome">
+  <h1>Welcome, Shub 🖤</h1>
+  <p>Real status: Princess mode activated</p>
+  <button onclick="go(2)">Start Journey</button>
+</div>
+
+<!-- QUIZ -->
+<div class="page" id="quiz">
+  <div class="box">
+    <p>Which anime is most legendary?</p>
+    <button onclick="go(3)">Re:Zero ✅</button>
+    <button>Naruto</button>
+  </div>
+</div>
+
+<!-- TIC TAC TOE -->
+<div class="page" id="game">
+  <h2>Beat AI to unlock next stage</h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- SCRATCH -->
+<div class="page" id="scratchPage">
+  <h2>Scratch to reveal memory</h2>
+  <canvas id="scratch"></canvas>
+  <img id="hiddenBracelet" style="display:none;margin-top:15px;" width="150"
+  src="https://i.pinimg.com/originals/9a/19/21/9a192164d7f0f2dea3b4b182c221d97d.jpg">
+  <button onclick="go(5)" style="display:none" id="scratchBtn">Next</button>
+</div>
+
+<!-- EMOTIONAL -->
+<div class="page" id="heartPage">
+  <div class="box">
+    <p>If you’re ever low, remember:</p>
+    <p>I’ll always listen. No judgement. Always.</p>
+    <button onclick="go(6)">Continue</button>
+  </div>
+</div>
+
+<!-- CERTIFICATE -->
+<div class="page" id="certPage">
+  <div class="cert">
+    <h2>Friendship Certificate</h2>
+    <p>
+      You are forcefully enforced into this friendship agreement. This bond is
+      permanent, non-refundable, and inescapable. You are now officially a
+      protected, valued, and irreplaceable part of this friendship system.
+    </p>
+    <img class="bracelet"
+    src="https://i.pinimg.com/originals/9a/19/21/9a192164d7f0f2dea3b4b182c221d97d.jpg">
+    <button onclick="go(7)">Final</button>
+  </div>
+</div>
+
+<!-- FINAL -->
+<div class="page" id="final">
+  <h2>Reply fast next time 😤</h2>
+  <p>Zyada uda na karo janab</p>
+</div>
+
+<script>
+const pages = ["login","welcome","quiz","game","scratchPage","heartPage","certPage","final"];
+
+function go(n){
+  pages.forEach(p=>document.getElementById(p).classList.remove("active"));
+  document.getElementById(pages[n]).classList.add("active");
+}
+
+function login(){
+  const u = user.value;
+  const p = pass.value;
+  if(u==="Shub@princess" && p==="Fast-text"){
+    bgm.play();
+    go(1);
+  } else alert("Access denied");
+}
+
+/* Sparkle */
+document.addEventListener("click", e=>{
+  let s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=e.pageX+"px";
+  s.style.top=e.pageY+"px";
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),800);
+});
+
+/* Tic Tac Toe vs AI */
+const grid = document.getElementById("grid");
+let board=["","","","","","","","",""];
+for(let i=0;i<9;i++){
+  let d=document.createElement("div");
+  d.className="cell";
+  d.onclick=()=>move(i,d);
+  grid.appendChild(d);
+}
+function move(i,el){
+  if(board[i]) return;
+  board[i]="X"; el.textContent="X";
+  setTimeout(aiMove,300);
+}
+function aiMove(){
+  let empty=board.map((v,i)=>v==""?i:null).filter(x=>x!=null);
+  let r=empty[Math.floor(Math.random()*empty.length)];
+  board[r]="O";
+  document.querySelectorAll(".cell")[r].textContent="O";
+  if(board.filter(x=>x).length>=5) go(4);
+}
+
+/* Scratch */
+const c=document.getElementById("scratch");
+const ctx=c.getContext("2d");
+c.width=300;c.height=150;
+ctx.fillStyle="silver";ctx.fillRect(0,0,300,150);
+c.addEventListener("mousemove",e=>{
+  if(e.buttons==1){
+    ctx.globalCompositeOperation="destination-out";
+    ctx.beginPath();
+    ctx.arc(e.offsetX,e.offsetY,20,0,Math.PI*2);
+    ctx.fill();
+    document.getElementById("hiddenBracelet").style.display="block";
+    document.getElementById("scratchBtn").style.display="block";
+  }
+});
+</script>
+
+</body>
+</html>
