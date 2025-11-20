@@ -74,3 +74,8 @@ function aiMove(){
   let pick = empty.sort(()=>0.5-Math.random())[0];
   cells[pick].innerText="O";
 }
+
+function screenShake(){
+  document.body.classList.add("shake");
+  setTimeout(()=>document.body.classList.remove("shake"),300);
+}
